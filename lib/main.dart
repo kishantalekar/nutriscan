@@ -4,7 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:nutriscan/app.dart';
-import 'package:nutriscan/data/auth/auth_repository.dart';
+import 'package:nutriscan/data/auth/authentication_repository.dart';
 import 'package:nutriscan/firebase_options.dart';
 
 void main() async {

@@ -33,7 +33,6 @@ class ProductRepository extends GetxController {
 
   Future<void> addProduct(Product product) async {
     try {
-      print(product.id);
       await _firestore
           .collection('products')
           .doc(product.id)

@@ -45,7 +45,6 @@ class AdminController extends GetxController {
 
   Future<void> addProduct() async {
     try {
-      print(barcodeController.text);
       TFullScreenLoader.openLoadingPage(
           "Adding product", TImages.dockerAnimation);
       Product product = Product(
@@ -175,7 +174,7 @@ class AdminController extends GetxController {
   Future<void> getAllProducts() async {
     try {
       final data = await productRepository.getAllProducts();
-      print(data);
+
       products.value = data;
     } catch (e) {
       Get.snackbar("Error", "Failed to fetch products: $e");

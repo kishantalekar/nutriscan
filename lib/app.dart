@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nutriscan/bindings/general_bindings.dart';
-import 'package:nutriscan/features/admin/screens/admin_dashboard.dart';
 
+import 'utils/constants/colors.dart';
 import 'utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -15,7 +15,13 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      home: AdminDashboard(),
+      home: const Scaffold(
+          backgroundColor: TColors.primary,
+          body: Center(
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
+          )),
     );
   }
 }

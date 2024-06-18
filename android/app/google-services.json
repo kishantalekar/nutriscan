@@ -45,7 +45,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:346109307463:android:4ffde9054c9fbe90fc5f62",
         "android_client_info": {
-          "package_name": "com.example.ecommerce_app"
+          "package_name": "com.example.nutriscan"
         }
       },
       "oauth_client": [
@@ -53,7 +53,7 @@
           "client_id": "346109307463-qm8ao678he8gk2i5ch1g5divgapkiaep.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.ecommerce_app",
+            "package_name": "com.example.nutriscan",
             "certificate_hash": "de2100d7dcbc94b3aa3708c83654f6355b69cb85"
           }
         },
