@@ -6,6 +6,7 @@ import 'package:nutriscan/features/admin/model/product_model.dart';
 import 'package:nutriscan/features/admin/screens/add_product.dart';
 import 'package:nutriscan/features/admin/screens/edit_product.dart';
 import 'package:nutriscan/features/admin/screens/product_details.dart';
+import 'package:nutriscan/features/authentication/screens/login/login.dart';
 import 'package:nutriscan/utils/constants/sizes.dart';
 import 'package:simple_barcode_scanner/simple_barcode_scanner.dart';
 
@@ -26,6 +27,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Admin Dashboard"),
+        actions: [
+          TextButton(
+              onPressed: () => Get.offAll(() => LoginScreen()),
+              child: Text("logout"))
+        ],
       ),
       body: SingleChildScrollView(
         child: Obx(() {
