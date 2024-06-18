@@ -31,11 +31,11 @@ class OnBoardingPage extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwItems,
           ),
-          Text(
-            subTitle,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
-          )
+          // Text(
+          //   subTitle,
+          //   style: Theme.of(context).textTheme.bodyMedium,
+          //   textAlign: TextAlign.center,
+          // )
         ],
       ),
     );

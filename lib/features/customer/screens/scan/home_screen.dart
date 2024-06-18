@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nutriscan/features/customer/controller/user_controller.dart';
-import 'package:nutriscan/features/customer/product_details.dart';
+import 'package:nutriscan/features/customer/screens/scan/product_details.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

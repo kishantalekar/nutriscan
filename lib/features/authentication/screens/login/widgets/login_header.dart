@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:nutriscan/utils/constants/image_strings.dart';
 import 'package:nutriscan/utils/constants/sizes.dart';
 import 'package:nutriscan/utils/constants/text_strings.dart';
@@ -16,11 +17,14 @@ class TLoginHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image(
-          image: AssetImage(
-            dark ? TImages.lightAppLogo : TImages.darkAppLogo,
+        Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image(
+              image: AssetImage("assets/images/content/nutriscan.png"),
+              height: 150,
+            ),
           ),
-          height: 150,
         ),
         Text(
           TTexts.loginTitle,
@@ -29,10 +33,10 @@ class TLoginHeader extends StatelessWidget {
         const SizedBox(
           height: TSizes.sm,
         ),
-        Text(
-          TTexts.loginSubTitle,
-          style: Theme.of(context).textTheme.bodyMedium,
-        )
+        // Text(
+        //   TTexts.loginSubTitle,
+        //   style: Theme.of(context).textTheme.bodyMedium,
+        // )
       ],
     );
   }

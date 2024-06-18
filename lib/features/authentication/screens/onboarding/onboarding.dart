@@ -22,18 +22,20 @@ class OnBoardingScreen extends StatelessWidget {
             onPageChanged: controller.updatePageIndicator,
             children: const [
               OnBoardingPage(
-                image: TImages.onBoardingImage1,
-                title: TTexts.onBoardingSubTitle1,
+                image: "assets/images/content/Food1.png",
+                title: "Local, Customized\nMeal Planning",
                 subTitle: TTexts.onBoardingSubTitle1,
               ),
               OnBoardingPage(
-                image: TImages.onBoardingImage2,
-                title: TTexts.onBoardingSubTitle2,
+                image: "assets/images/content/food2.png",
+                title:
+                    "Create your own customized meal plan from our selection of healthy meal options.",
                 subTitle: TTexts.onBoardingSubTitle2,
               ),
               OnBoardingPage(
-                image: TImages.onBoardingImage3,
-                title: TTexts.onBoardingSubTitle3,
+                image: "assets/images/content/food3.png",
+                title:
+                    "Enjoy healthy and delicious meals delivered to your doorstep, prepared with fresh, high-quality ingredients.",
                 subTitle: TTexts.onBoardingSubTitle3,
               ),
             ],
