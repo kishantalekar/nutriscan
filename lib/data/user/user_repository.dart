@@ -34,10 +34,12 @@ class UserRepository extends GetxController {
 
   Future<UserModel> fetchUserDetails() async {
     try {
+      log("${AuthenticationRepository.instance.currentUser?.uid.toString()} fetchUserDetails function ");
       final documentSnapshot = await _db
           .collection('Users')
           .doc(AuthenticationRepository.instance.currentUser?.uid)
           .get();
+      print(documentSnapshot.data());
 
       if (documentSnapshot.exists) {
         return UserModel.fromMap(documentSnapshot.data()!);
@@ -45,12 +47,16 @@ class UserRepository extends GetxController {
         return UserModel.empty();
       }
     } on FirebaseException catch (e) {
+      print(e);
       throw TFirebaseException(e.code).message;
     } on FormatException catch (e) {
+      print(e);
       throw TFormatException();
     } on PlatformException catch (e) {
+      print(e);
       throw TPlatformException(e.code).message;
     } catch (e) {
+      print(e);
       log(e.toString());
       throw "Something went wrong";
     }

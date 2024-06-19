@@ -41,7 +41,11 @@ class FoodController extends GetxController {
   }
 
   void loadFoodItems() async {
-    final items = await DBHelper().getFoodItems();
-    foodItems.assignAll(items);
+    try {
+      final items = await DBHelper().getFoodItems();
+      foodItems.assignAll(items);
+    } catch (e) {
+      print(e);
+    }
   }
 }

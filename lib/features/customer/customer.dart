@@ -20,7 +20,7 @@ class CustomerScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Customer"),
+        title: Obx(() => Text("Hello ${controller.user.value.username}")),
         actions: [
           TextButton(
               onPressed: () async {

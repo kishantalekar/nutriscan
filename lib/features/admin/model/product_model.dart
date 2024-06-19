@@ -13,20 +13,21 @@ class Product {
   final String dietaryInfo;
   final String imageUrl;
 
-  Product(
-      {required this.id,
-      required this.name,
-      required this.brand,
-      required this.barcode,
-      required this.calories,
-      required this.protein,
-      required this.fat,
-      required this.carbohydrates,
-      required this.servingSize,
-      required this.ingredients,
-      required this.allergens,
-      required this.dietaryInfo,
-      this.imageUrl = ""});
+  Product({
+    required this.id,
+    required this.name,
+    required this.brand,
+    required this.barcode,
+    required this.calories,
+    required this.protein,
+    required this.fat,
+    required this.carbohydrates,
+    required this.servingSize,
+    required this.ingredients,
+    required this.allergens,
+    required this.dietaryInfo,
+    this.imageUrl = "",
+  });
 
   // Factory method to create a Product from JSON
   factory Product.fromJson(Map<String, dynamic> json) {
@@ -43,7 +44,7 @@ class Product {
       ingredients: json['ingredients'],
       allergens: json['allergens'],
       dietaryInfo: json['dietaryInfo'],
-      imageUrl: json['imageUrl'],
+      imageUrl: json['imageUrl'] ?? "",
     );
   }
 
@@ -62,7 +63,44 @@ class Product {
       'ingredients': ingredients,
       'allergens': allergens,
       'dietaryInfo': dietaryInfo,
-      'imageUrl': imageUrl
+      'imageUrl': imageUrl,
     };
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Product &&
+        other.id == id &&
+        other.name == name &&
+        other.brand == brand &&
+        other.barcode == barcode &&
+        other.calories == calories &&
+        other.protein == protein &&
+        other.fat == fat &&
+        other.carbohydrates == carbohydrates &&
+        other.servingSize == servingSize &&
+        other.ingredients == ingredients &&
+        other.allergens == allergens &&
+        other.dietaryInfo == dietaryInfo &&
+        other.imageUrl == imageUrl;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        brand.hashCode ^
+        barcode.hashCode ^
+        calories.hashCode ^
+        protein.hashCode ^
+        fat.hashCode ^
+        carbohydrates.hashCode ^
+        servingSize.hashCode ^
+        ingredients.hashCode ^
+        allergens.hashCode ^
+        dietaryInfo.hashCode ^
+        imageUrl.hashCode;
   }
 }

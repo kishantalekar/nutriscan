@@ -1,5 +1,3 @@
-// import 'package:nutriscan/data/repositories/auth/authentication_repository.dart';
-// import 'package:nutriscan/data/repositories/user/user_repository.dart';
 import 'dart:developer';
 
 import 'package:nutriscan/data/user/user_repository.dart';
@@ -8,8 +6,6 @@ import 'package:nutriscan/features/authentication/models/user_model.dart';
 import 'package:nutriscan/features/customer/screens/scan/product_details.dart';
 import 'package:nutriscan/features/customer/screens/expiry/expiry_tracker.dart';
 import 'package:nutriscan/features/customer/screens/scan/home_screen.dart';
-// import 'package:nutriscan/features/authentication/screens/login/login.dart';
-// import 'package:nutriscan/features/personalization/screens/profile/widgets/re_auth_form.dart';
 import 'package:nutriscan/utils/popups/loaders.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -55,23 +51,22 @@ class UserController extends GetxController {
           builder: (context) => const SimpleBarcodeScannerPage(),
         ),
       );
-      res = "6907202691460";
+
       if (res != null) {
         log(res);
         final exists = await adminController.getProduct(res);
         if (exists != null) {
-          if (scannedItems.contains(exists) != false) {
+          log(exists.name.toString());
+          if (!scannedItems.contains(exists)) {
             scannedItems.add(exists);
-            scannedItems.refresh();
             await addProductToScannedHistory(res);
+            scannedItems.refresh();
           }
-
           Get.to(() => ProductDetail(
                 product: exists,
               ));
         } else {
-          // _showProductNotFoundDialog(context);
-          TFullScreenLoader.warningSnackBar(title: 'Product doesnt exists');
+          TFullScreenLoader.warningSnackBar(title: 'Product doesn\'t exist');
         }
       }
     }
@@ -79,27 +74,22 @@ class UserController extends GetxController {
 
   Future<void> addProductToScannedHistory(String barcodeId) async {
     try {
-      log(user.value.toString());
-
       final scannedHistory = [...user.value.scannedHistory, barcodeId];
-      log("scannedHistory ${scannedHistory}");
+      log("scanned addproduct : $scannedHistory");
       final UserModel updatedUser = user.value.copyWith(
         scannedHistory: scannedHistory,
       );
-      log("addProductToScannedHistory");
-      log(updatedUser.toString());
       await userRepository.updateUserDetails(updatedUser);
       user.value = updatedUser; // Update the local user model
-
-      log('updateed user ${user.value}');
+      log('Updated user ${user.value}');
     } catch (e) {
       TFullScreenLoader.warningSnackBar(
-          title: 'Failed to add to history', message: e.toString());
+          title: 'Failed to add to history', message: 'Error: $e');
       log(e.toString());
     }
   }
 
-  //save user record
+  // Save user record
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
       if (userCredential != null) {
@@ -137,7 +127,8 @@ class UserController extends GetxController {
 
       await _fetchScannedItemsDetails();
     } catch (e) {
-      this.user(UserModel.empty());
+      log(e.toString());
+      user.value = UserModel.empty();
     } finally {
       profileLoading.value = false;
     }
@@ -153,6 +144,7 @@ class UserController extends GetxController {
         }
       }
       scannedItems.assignAll(products);
+      scannedItems.refresh();
     } catch (e) {
       TFullScreenLoader.warningSnackBar(
           title: 'Failed to fetch scanned items', message: e.toString());

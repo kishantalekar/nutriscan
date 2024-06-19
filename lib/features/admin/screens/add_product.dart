@@ -47,7 +47,9 @@ class AddProduct extends StatelessWidget {
                                           width: 200,
                                           fit: BoxFit.cover,
                                         )
-                                      : Image(image: AssetImage(TImages.visa)),
+                                      : Image(
+                                          image: AssetImage(
+                                              "assets/images/content/upload_image_placeholder.png")),
                                 ),
                                 TextButton(
                                   onPressed: () {

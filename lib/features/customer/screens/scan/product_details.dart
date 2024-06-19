@@ -17,94 +17,86 @@ class ProductDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (product.imageUrl != null)
+            if (product.imageUrl.isNotEmpty)
               Center(
                 child: Image.network(
-                  product.imageUrl!,
+                  product.imageUrl,
                   height: 200,
-                  width: 200,
+                  width: double.infinity,
                   fit: BoxFit.cover,
                 ),
               ),
             const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              product.name,
-              style: Theme.of(context).textTheme.headline5,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              'Brand: ${product.brand}',
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              'Barcode: ${product.barcode}',
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              'Nutritional Information',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            const SizedBox(height: TSizes.spaceBtwInputFields),
-            Text(
-              'Calories: ${product.calories}',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            Text(
-              'Protein: ${product.protein} g',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            Text(
-              'Fat: ${product.fat} g',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            Text(
-              'Carbohydrates: ${product.carbohydrates} g',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              'Serving Size',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            const SizedBox(height: TSizes.spaceBtwInputFields),
-            Text(
-              product.servingSize,
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              'Ingredients',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            const SizedBox(height: TSizes.spaceBtwInputFields),
-            Text(
-              product.ingredients,
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              'Allergens',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            const SizedBox(height: TSizes.spaceBtwInputFields),
-            Text(
-              product.allergens,
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              'Dietary Information',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            const SizedBox(height: TSizes.spaceBtwInputFields),
-            Text(
-              product.dietaryInfo,
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
+            buildSectionTitle(context, 'Product Information'),
+            buildInfoCard('Brand', product.brand),
+            buildInfoCard('Barcode', product.barcode),
+            buildSectionTitle(context, 'Nutritional Information'),
+            buildNutritionalInfo(context),
+            buildSectionTitle(context, 'Serving Size'),
+            buildInfoCard('', product.servingSize),
+            buildSectionTitle(context, 'Ingredients'),
+            buildInfoCard('', product.ingredients),
+            buildSectionTitle(context, 'Allergens'),
+            buildInfoCard('', product.allergens),
+            buildSectionTitle(context, 'Dietary Information'),
+            buildInfoCard('', product.dietaryInfo),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildSectionTitle(BuildContext context, String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Text(
+        title,
+        style: Theme.of(context)
+            .textTheme
+            .headline6
+            ?.copyWith(fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget buildNutritionalInfo(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      elevation: 3,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            buildNutritionalRow('Calories', '${product.calories} kcal'),
+            const Divider(),
+            buildNutritionalRow('Protein', '${product.protein} g'),
+            const Divider(),
+            buildNutritionalRow('Fat', '${product.fat} g'),
+            const Divider(),
+            buildNutritionalRow('Carbohydrates', '${product.carbohydrates} g'),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildNutritionalRow(String nutrient, String value) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(nutrient, style: const TextStyle(fontSize: 16)),
+        Text(value, style: const TextStyle(fontSize: 16)),
+      ],
+    );
+  }
+
+  Widget buildInfoCard(String title, String detail) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      elevation: 3,
+      child: ListTile(
+        title: Text(detail, style: const TextStyle(fontSize: 16)),
       ),
     );
   }
