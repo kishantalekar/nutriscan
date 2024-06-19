@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:nutriscan/features/admin/model/product_model.dart';
+import 'package:nutriscan/features/customer/customer.dart';
 import 'package:nutriscan/utils/constants/image_strings.dart';
 import 'package:nutriscan/utils/constants/sizes.dart';
 import 'package:nutriscan/utils/helpers/helper_functions.dart';
@@ -28,7 +30,7 @@ class ProductDetails extends StatelessWidget {
                       width: THelperFunctions.screenWidth() * 0.8,
                     )
                   : Image.asset(
-                      TImages.paytm,
+                      "assets/images/content/upload_image_placeholder.png",
                       width: THelperFunctions.screenWidth() * 0.5,
                     ),
             ),
