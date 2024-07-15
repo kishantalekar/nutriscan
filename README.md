@@ -56,16 +56,26 @@ The project consists of the following main folders:
 
 ## Screens
 
-- **Login**: User authentication screen. ![Login](assets/project/login.png)
-- **Register**: User registration screen. ![Register](assets/project/register.png)
-- **Home (Customer)**: Main interface for scanning barcodes and viewing nutritional information. ![Home](assets/project/scannedHome.png)
-- **Reminder**: Screen to manage reminders for food items. ![Reminder](assets/project/reminder.png)
-- **Reminder List**: Screen to view the list of reminders. ![Reminder List](assets/project/reminder_list.png)
-- **Product**: Screen to view detailed information about a product. ![Product](assets/project/product.png)
-- **Product1**: Another screen variant for viewing product details. ![Product1](assets/project/product1.png)
-- **Admin Dashboard**: Admin interface for managing products. ![Admin Dashboard](assets/project/admin_dashboard.png)
-- **Add Product**: Admin screen to add new products. ![Add Product](assets/project/add_product.png)
-- **Add Product1**: Another variant of the admin screen for adding new products. ![Add Product1](assets/project/add_product1.png)
+- **Login**: User authentication screen.
+  ![Login](assets/project/login.png)
+- **Register**: User registration screen.
+  ![Register](assets/project/register.png)
+- **Home (Customer)**: Main interface for scanning barcodes and viewing nutritional information.
+  ![Home](assets/project/scannedHome.png)
+- **Reminder**: Screen to manage reminders for food items.
+  ![Reminder](assets/project/reminder.png)
+- **Reminder List**: Screen to view the list of reminders.
+  ![Reminder List](assets/project/reminder_list.png)
+- **Product**: Screen to view detailed information about a product.
+  ![Product](assets/project/product.png)
+- **Product1**: Another screen variant for viewing product details.
+  ![Product1](assets/project/product1.png)
+- **Admin Dashboard**: Admin interface for managing products.
+  ![Admin Dashboard](assets/project/admin_dashboard.png)
+- **Add Product**: Admin screen to add new products.
+  ![Add Product](assets/project/add_product.png)
+- **Add Product1**: Another variant of the admin screen for adding new products.
+  ![Add Product1](assets/project/add_product1.png)
 
 ## Contact Information
 
