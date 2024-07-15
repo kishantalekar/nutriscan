@@ -56,25 +56,25 @@ The project consists of the following main folders:
 
 ## Screens
 
-- **Login**
+- **Login**:
   ![Login](assets/project/login.png)
-- **Register**
+- **Register**:
   ![Register](assets/project/register.png)
-- **Home (Customer)**
+- **Home (Customer)**:
   ![Home](assets/project/scannedHome.png)
-- **Reminder**
+- **Reminder**:
   ![Reminder](assets/project/reminder.png)
-- **Reminder List**
+- **Reminder List**:
   ![Reminder List](assets/project/reminder_list.png)
-- **Product**
+- **Product**:
   ![Product](assets/project/product.png)
-- **Product1**
+- **Product1**:
   ![Product1](assets/project/product1.png)
-- **Admin Dashboard**
+- **Admin Dashboard**:
   ![Admin Dashboard](assets/project/admin_dashboard.png)
-- **Add Product**
+- **Add Product**:
   ![Add Product](assets/project/add_product.png)
-- **Add Product1**
+- **Add Product1**:
   ![Add Product1](assets/project/add_product1.png)
 
 ## Contact Information
