@@ -80,14 +80,18 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-          TextFormField(
-            validator: (value) => TValidator.validatePhoneNumber(value),
-            controller: controller.phoneNumber,
-            decoration: const InputDecoration(
-              labelText: TTexts.phoneNo,
-              prefixIcon: Icon(Iconsax.call),
-            ),
-          ),
+     TextFormField(
+  validator: (value) => TValidator.validatePhoneNumber(value),
+  controller: controller.phoneNumber,
+  keyboardType: TextInputType.phone, // Display numeric keyboard
+  inputFormatters: [
+    FilteringTextInputFormatter.digitsOnly, // Allow only digits
+  ],
+  decoration: const InputDecoration(
+    labelText: TTexts.phoneNo,
+    prefixIcon: Icon(Iconsax.call),
+  ),
+),
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
