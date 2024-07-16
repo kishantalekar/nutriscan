@@ -1,4 +1,4 @@
-# Nutriscan
+# Nutriscan built with flutter
 
 ## Overview
 
